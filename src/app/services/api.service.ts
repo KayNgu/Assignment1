@@ -27,18 +27,18 @@ export class ApiService {
   }
 
   // Retrieves a product using its id
-  GetProduct(id: number): Observable<Product>{
+  GetProduct(id: string): Observable<Product>{
     return this.httpClient.get<Product>(`${this.apiUrl}Product/GetProduct/` + id)
   }
 
   // Adds a product to the database
-  Addproduct(addProductAttr: Product){
+  AddProduct(addProductAttr: Product){
      return this.httpClient.post<Product>(`${this.apiUrl}Product/AddProduct/`, addProductAttr)
   }
 
   // Edits the selected product's attributes
   EditProduct(id: number, productAttr: Product){
-    return this.httpClient.put<Product>(`${this.apiUrl}Product/UpdateProduct/` + id, productAttr)
+    return this.httpClient.put<Product>(`${this.apiUrl}Product/EditProduct/` + id, productAttr)
   }
 
   // Deletes a product from the database

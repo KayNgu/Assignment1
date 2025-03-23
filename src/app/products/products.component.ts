@@ -11,13 +11,20 @@ import { Router } from '@angular/router';
 })
 export class ProductsComponent implements OnInit {
 
-  products:Product[] = [];
+  products: Product[] = []
 
-  @Input() product!: Product;
 
   constructor(private apiservice: ApiService, private router: Router) {}
+
+  ngOnInit(): void {
+      
+    this.GetAllProducts()
+
+    console.log(this.products)
+    
+  }
   
-  GetProducts()
+  GetAllProducts()
   {
     this.apiservice.GetAllProducts().subscribe(result => {
       let productList: any[] = result
@@ -27,12 +34,15 @@ export class ProductsComponent implements OnInit {
       this.products.reverse();
     })
   }
+
+  deleteProduct(ProductId: number){
+    this.apiservice.DeleteProduct(ProductId).subscribe({
+      next: (response) => {
+        alert("Deleted");
+        window.location.reload();
+      }
+    });
+  }
   
   
-    ngOnInit(): void {
-      
-      this.GetProducts()
-      console.log(this.products)
-      
-    }
 }
