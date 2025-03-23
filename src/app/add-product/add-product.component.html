@@ -10,7 +10,7 @@
           </div>
     
           <div class="row mb-3">
-            <label for="duration" class="col-sm-2 col-form-label">Price</label>
+            <label for="price" class="col-sm-2 col-form-label">Price</label>
             <input style="border-color: darkgray;" type="text" class="form-control" id="price" name="price" [(ngModel)]="addProductAttr.price" required #durationField="ngModel">
           </div>
     
@@ -19,7 +19,7 @@
             <input style="border-color: darkgray;" type="text" class="form-control" id="description" name="description" [(ngModel)]="addProductAttr.description" required #descriptionField="ngModel">
           </div>
     
-          <button type="submit" class="btn-add" [disabled]="form.invalid">Add</button>
+          <button type="submit" class="btn-add" [disabled]="form.invalid">Submit</button>
           <button type="button" class="btn-cancel" (click)="cancel()">Cancel</button>
         </form>
       </div>
