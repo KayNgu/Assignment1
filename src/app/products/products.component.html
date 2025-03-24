@@ -7,7 +7,7 @@
         </div>
         
         <div class="card-body">
-            <p>Price: {{ product.price }}</p>
+            <p>Price: {{ product.price | currency:"R" }}</p>
             <p>Description: {{ product.description }}</p>
         </div>
 
